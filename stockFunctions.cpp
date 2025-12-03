@@ -62,6 +62,8 @@ std::vector<double> parseData(const std::string& csv){
   for (char c : csv){
     if (c == ','){
       ss << ' ';
+    } else{
+      ss << c;
     }
   }
   
