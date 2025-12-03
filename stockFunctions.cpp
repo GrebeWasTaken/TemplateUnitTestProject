@@ -108,7 +108,10 @@ double maxDrawdown(const std::vector<double>& values, int startDay, int endDay){
     if (current > maxSoFar){
       maxSoFar = current;
     } else{
-      double drawdown
+      double drawdown = current - maxSoFar;
+      if (drawdown < minDrawdown){
+        minDrawdown = drawdown;
+      }
     }
   }
   
