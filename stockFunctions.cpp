@@ -81,4 +81,12 @@ std::vector<double> parseData(const std::string& csv)
 }
 
 // vector of day to day changes
+std::vector<double> getChangeVector(const std::vector<double>& values){
+  std::vector<double> changes;
 
+  if (values.empty())
+  {
+    /* code */
+  }
+  
+}
