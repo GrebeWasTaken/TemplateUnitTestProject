@@ -98,4 +98,8 @@ std::vector<double> getChangeVector(const std::vector<double>& values){
   return changes;
 }
 
-??
+// finds maximum loss, returns negative, 0 if no decline
+double maxDrawdown(const std::vector<double>& values, int startDay, int endDay){
+  double maxSoFar = values.at(startDay);
+  double minDrawdown = 0.0
+}
