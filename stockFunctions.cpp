@@ -49,3 +49,13 @@ double standardDev(const std::vector<double>& values, int startDay, int endDay){
   return std::sqrt(variance);
 }
 
+//comma seperated doubles to vectors
+std::vector<double> parseData(const std::string& csv){
+  std::vector<double> result;
+
+  if (csv.empty()){
+    return result;
+  }
+
+  
+}
