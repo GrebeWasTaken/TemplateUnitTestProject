@@ -15,5 +15,15 @@ double percentChange(const std::vector<double>& values, int startDay, int endDay
 double highestValue(const std::vector<double>& values, int startDay, int endDay){
   double best = values.at(startDay);
 
-  for ()
+  for (int i = startDay + 1; i <= endDay; ++i){
+    if (values.at(i) > best){
+      best = values.at(i);
+    }
+  }
+  return best;
+}
+
+//average value
+double average(const std::vector<double>& values, int startDay, int endDay){
+  
 }
