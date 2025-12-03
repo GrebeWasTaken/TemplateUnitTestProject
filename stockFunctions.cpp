@@ -10,3 +10,4 @@ double percentChange(const std::vector<double>& values, int startDay, int endDay
   double change = (end - start) / start * 100;
   return change;
 }
+
