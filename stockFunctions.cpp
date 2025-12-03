@@ -68,4 +68,9 @@ std::vector<double> parseData(const std::string& csv){
     }
   }
   
+  double value;
+  while(ss >> value){
+    result.push_back(value);
+  }
+
 }
