@@ -1,7 +1,7 @@
 #include "stockFunctions.h"
 #include <cmath>
-#include <cstdlib>
 #include <sstream>
+#include <cstdlib>
 
 //calculates Percent change = ((end - start) / start) * 100
 double percentChange(const std::vector<double>& values, int startDay, int endDay){
