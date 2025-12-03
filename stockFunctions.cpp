@@ -57,5 +57,9 @@ std::vector<double> parseData(const std::string& csv){
     return result;
   }
 
+  std::stringstream ss;
+  for (char c : csv){
+    
+  }
   
 }
