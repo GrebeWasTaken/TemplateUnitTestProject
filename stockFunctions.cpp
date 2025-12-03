@@ -59,10 +59,11 @@ std::vector<double> parseData(const std::string& csv){
   }
 
   std::stringstream ss;
-  for (char c : csv){
-    if (c == ','){
+  for (char c : csv) {
+    if (c == ',') {
       ss << ' ';
-    } else{
+    } 
+    else {
       ss << c;
     }
   }
