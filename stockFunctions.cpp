@@ -1,10 +1,12 @@
 #include "stockFunctions.h"
 #include <cmath>
-#include <sstream>
 #include <cstdlib>
+#include <sstream>
 
-//calculates Percent change = ((end - start) / start) * 100
-double percentChange(const std::vector<double>& values, int startDay, int endDay){
+// calculates Percent change = ((end - start) / start) * 100
+double percentChange(const std::vector<double>& values, int startDay,
+                     int endDay)
+{
   double start = values[startDay];
   double end = values[endDay];
 
@@ -12,49 +14,53 @@ double percentChange(const std::vector<double>& values, int startDay, int endDay
   return change;
 }
 
-//finds highest value
-double highestValue(const std::vector<double>& values, int startDay, int endDay){
+// finds highest value
+double highestValue(const std::vector<double>& values, int startDay, int endDay)
+{
   double best = values.at(startDay);
 
-  for (int i = startDay + 1; i <= endDay; ++i){
-    if (values.at(i) > best){
+  for (int i = startDay + 1; i <= endDay; ++i) {
+    if (values.at(i) > best) {
       best = values.at(i);
     }
   }
   return best;
 }
 
-//average value
-double average(const std::vector<double>& values, int startDay, int endDay){
+// average value
+double average(const std::vector<double>& values, int startDay, int endDay)
+{
   double sum = 0.0;
   int count = endDay - startDay + 1;
 
-  for (int i = startDay; i <= endDay; ++i){
+  for (int i = startDay; i <= endDay; ++i) {
     sum += values.at(i);
   }
   return sum / count;
 }
 
-//standard deviation
-double standardDev(const std::vector<double>& values, int startDay, int endDay){
+// standard deviation
+double standardDev(const std::vector<double>& values, int startDay, int endDay)
+{
   double mean = average(values, startDay, endDay);
   int count = endDay - startDay + 1;
 
   double sumSqDiff = 0.0;
-  for (int i = startDay; i <= endDay; ++i){
+  for (int i = startDay; i <= endDay; ++i) {
     double diff = values.at(i) - mean;
-    sumSqDiff += diff *diff;
+    sumSqDiff += diff * diff;
   }
 
   double variance = sumSqDiff / count;
   return std::sqrt(variance);
 }
 
-//comma seperated doubles to vectors
-std::vector<double> parseData(const std::string& csv){
+// comma seperated doubles to vectors
+std::vector<double> parseData(const std::string& csv)
+{
   std::vector<double> result;
 
-  if (csv.empty()){
+  if (csv.empty()) {
     return result;
   }
 
@@ -62,15 +68,14 @@ std::vector<double> parseData(const std::string& csv){
   for (char c : csv) {
     if (c == ',') {
       ss << ' ';
-    } 
-    else {
+    } else {
       ss << c;
     }
   }
-  
+
   double value;
-  while(ss >> value){
+  while (ss >> value) {
     result.push_back(value);
   }
-
+  return result;
 }
