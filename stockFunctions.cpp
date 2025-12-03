@@ -1,6 +1,7 @@
 #include "stockFunctions.h"
 #include <cmath>
 #include <cstdlib>
+#include <sstream>
 
 //calculates Percent change = ((end - start) / start) * 100
 double percentChange(const std::vector<double>& values, int startDay, int endDay){
@@ -59,7 +60,7 @@ std::vector<double> parseData(const std::string& csv){
 
   std::stringstream ss;
   for (char c : csv){
-    
+
   }
   
 }
