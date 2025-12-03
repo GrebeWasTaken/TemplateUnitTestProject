@@ -1,2 +1,4 @@
 #include "stockFunctions.h"
-#include
+#include <cmath>
+#include <cstdlib>
+
