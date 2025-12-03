@@ -12,4 +12,4 @@ double percentChange(const std::vector<double>& values, int startDay, int endDay
 }
 
 //finds highest value
-double highestValue()
+double highestValue(const std::vector<double>& values, int startDay, int endDay)
