@@ -79,3 +79,6 @@ std::vector<double> parseData(const std::string& csv)
   }
   return result;
 }
+
+// vector of day to day changes
+
