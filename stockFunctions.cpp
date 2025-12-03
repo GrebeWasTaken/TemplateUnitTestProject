@@ -42,6 +42,10 @@ double standardDev(const std::vector<double>& values, int startDay, int endDay){
   double sumSqDiff = 0.0;
   for (int i = startDay; i <= endDay; ++i){
     double diff = values.at(i) - mean;
-    sumSqDiff
+    sumSqDiff += diff *diff;
   }
+
+  double variance = sumSqDiff / count;
+  return std::sqrt(variance);
 }
+
