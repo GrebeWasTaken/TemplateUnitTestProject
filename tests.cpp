@@ -1,53 +1,68 @@
+//----------------------------------------------------------
+// CS161 Assignment Starter Code
+// Copyright Andrew Scholer (ascholer@chemeketa.edu)
+// Neither this code, nor any works derived from it
+//    may be republished without approval.
+//----------------------------------------------------------
+
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
 using doctest::Approx;
 
-int squareDifference(int a, int b)
+#include <iostream>
+using namespace std;
+
+#include "stockFunctions.h"
+
+const std::vector<double> TEST_VEC1 = {12.25, 12.15, 12.17, 12.20, 12.06};
+
+TEST_CASE("percentChange")
 {
-  return (a - b) * (a - b);
+  cout << "1: percentChange" << endl;
+  CHECK(percentChange(TEST_VEC1, 1, 2) == Approx(0.164609));
 }
 
-double distance(int x1, int y1, int x2, int y2)
+TEST_CASE("highestValue")
 {
-  return sqrt(squareDifference(x1, x2) + squareDifference(y1, y2));
+  cout << "2: highestValue" << endl;
+  CHECK(highestValue(TEST_VEC1, 1, 3) == Approx(12.20));
 }
 
-TEST_CASE("squareDifference")
+TEST_CASE("average")
 {
-  // if a CHECK fails, the test case as a whole will fail, but still
-  // try the rest of the assertions.
-  CHECK(squareDifference(1, 4) == 9);
-
-  // if a REQUIRE fails, the rest of the assertions in this
-  // test case aren't even worth trying---just move on to the next
-  // test case.
-  REQUIRE(squareDifference(1, 4) == 9);
-
-  // Test that ordering does not matter
-  CHECK(squareDifference(4, 1) == 9);
-
-  // Test that negatives are handled
-  int answer3 = squareDifference(-2, -6);
-  CHECK(answer3 == 16);
+  cout << "3: average" << endl;
+  CHECK(average(TEST_VEC1, 1, 3) == Approx(12.173333));
 }
 
-TEST_CASE("distance")
+TEST_CASE("standardDev")
 {
-  int x1 = 0, y1 = 0;
-  int x2 = 3, y2 = 4;
-  int x3 = -2, y3 = -2;
+  cout << "4: standardDev" << endl;
+  CHECK(standardDev(TEST_VEC1, 1, 3) == Approx(0.0205480));
+}
 
-  // Approx sees if a double value is "close enough" to believe that any
-  // difference is based on rounding error.  Always test doubles using
-  // Approx.  It only exists in unit tests---do not use in normal code.
-  CHECK(distance(x1, y1, x2, y2) == Approx(5.0));
+TEST_CASE("calculateChangeArray")
+{
+  cout << "5: getChangeVector" << endl;
+  std::vector<double> changes = getChangeVector(TEST_VEC1);
 
-  // Check reverse direction
-  CHECK(distance(x2, y2, x1, y1) == Approx(5.0));
+  CHECK(changes.at(1) == Approx(-0.1));
+}
 
-  // Test some negative coordinate values
-  double answer2 = distance(x1, y1, x3, y3);
-  double answer2Desired = 2 * sqrt(2);
-  CHECK(answer2 == Approx(answer2Desired));
+TEST_CASE("parseData")
+{
+  cout << "6: parseData" << endl;
+
+  const string csv = "1.1,12.3,4.6,-1.0";
+  std::vector<double> TEST_ARR2 = parseData(csv);
+  CHECK(TEST_ARR2.size() == 4);
+  CHECK(TEST_ARR2.at(0) == Approx(1.1));
+}
+
+TEST_CASE("maxDrawdown")
+{
+  cout << "7: maxDrawdown" << endl;
+  const std::vector<double> TEST_ARR2 = {10.0, 6.0,  20.0, 18.0,
+                                         13.0, 11.0, 17.0};
+  CHECK(maxDrawdown(TEST_ARR2, 0, 6) == Approx(-9));
 }
