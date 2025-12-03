@@ -28,6 +28,8 @@ double average(const std::vector<double>& values, int startDay, int endDay){
   double sum = 0.0;
   int count = endDay - startDay + 1;
 
-  for (int i = startDay)
+  for (int i = startDay; i <= endDay; ++i){
+    sum += values.at(i);
+  }
   
 }
