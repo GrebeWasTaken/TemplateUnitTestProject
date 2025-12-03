@@ -3,4 +3,4 @@
 #include <cstdlib>
 
 //calculates Percent change = ((end - start) / start) * 100
-double percentChange(const std::vector<double>& values,)
+double percentChange(const std::vector<double>& values, int start)
