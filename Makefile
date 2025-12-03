@@ -4,10 +4,10 @@ CXXFLAGS += -std=c++20 -fmodules-ts -pedantic -pedantic-errors
 CXXFLAGS += -Wfloat-equal -Wredundant-decls -Wshadow -Wconversion -Wuninitialized
 
 # list .h files here
-HEADERS =
+HEADERS = stockFunctions.h
 
 # list .cpp files here
-TEST_FILES = tests.cpp
+TEST_FILES = tests.cpp stockFunctions.cpp
 SHARED_FILES = 
 
 .PHONY: all
