@@ -7,7 +7,7 @@ CXXFLAGS += -Wfloat-equal -Wredundant-decls -Wshadow -Wconversion -Wuninitialize
 HEADERS = stockFunctions.h
 
 # list .cpp files here
-TEST_FILES = tests.cpp, stockFunctions.cpp
+TEST_FILES = tests.cpp stockFunctions.cpp
 SHARED_FILES = 
 
 .PHONY: all
