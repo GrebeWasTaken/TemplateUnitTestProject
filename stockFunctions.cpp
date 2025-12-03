@@ -84,9 +84,10 @@ std::vector<double> parseData(const std::string& csv)
 std::vector<double> getChangeVector(const std::vector<double>& values){
   std::vector<double> changes;
 
-  if (values.empty())
-  {
-    /* code */
+  if (values.empty()){
+    return changes;
   }
+
+  
   
 }
