@@ -114,5 +114,5 @@ double maxDrawdown(const std::vector<double>& values, int startDay, int endDay){
       }
     }
   }
-  
+  return minDrawdown;
 }
